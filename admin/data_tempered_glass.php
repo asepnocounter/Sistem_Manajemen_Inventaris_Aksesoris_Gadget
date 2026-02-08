@@ -42,43 +42,43 @@
               </thead>           
               <tbody>
                 <?php 
-        include('koneksi.php');
-        $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
+                  include('koneksi.php');
+                  $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
 
-              if($keyword != ''){
-                  $data = mysqli_query($koneksi, "
-                      SELECT * FROM tampered_glass
-                      WHERE 
-                          nama_tg LIKE '%$keyword%' OR
-                          hp_tg   LIKE '%$keyword%' OR
-                          jenis_tg LIKE '%$keyword%'
-                  ");
-              }else{
-                  $data = mysqli_query($koneksi, "
-                      SELECT * FROM tampered_glass
-                  ");
-              }
+                        if($keyword != ''){
+                            $data = mysqli_query($koneksi, "
+                                SELECT * FROM tampered_glass
+                                WHERE 
+                                    nama_tg LIKE '%$keyword%' OR
+                                    hp_tg   LIKE '%$keyword%' OR
+                                    jenis_tg LIKE '%$keyword%'
+                            ");
+                        }else{
+                            $data = mysqli_query($koneksi, "
+                                SELECT * FROM tampered_glass
+                            ");
+                        }
                       $no = 0;
-          while($baris = mysqli_fetch_array($data)){
-          $no++
-          ?>
-        <tr><td><?php echo $no?></td>
-        <td><?php echo $baris['nama_tg'];?></td>
-        <td><?php echo $baris['jumlah'];?></td>
-        <td><?php echo $baris['harga'];?></td>
-        <td><?php echo $baris['jenis_tg'];?></td>
-        <td><?php echo $baris['hp_tg'];?></td>
-        <td>
-          <a href="form_update.php?no=<?php echo $baris['id'] ?>">
-            <Button type="button" class="btn btn-primary"> edit</Button>
-          </a>
-          <a href="hapus.php?no=<?php echo $baris['id'] ?>">
-            <button type="button" class="btn btn-danger"onclick="return confirm('Konfirmasi jika ingin menghapus?')">hapus</button></a>
-          </td>
-          <td>
-            <input type="button" class="btn btn-success" value="Export Excel" onclick="window.open('script_excel.php')">
-          </td>
-          <?php } ?>
+                      while($baris = mysqli_fetch_array($data)){
+                      $no++
+                    ?>
+                  <tr><td><?php echo $no?></td>
+                  <td><?php echo $baris['nama_tg'];?></td>
+                  <td><?php echo $baris['jumlah'];?></td>
+                  <td><?php echo $baris['harga'];?></td>
+                  <td><?php echo $baris['jenis_tg'];?></td>
+                  <td><?php echo $baris['hp_tg'];?></td>
+                  <td>
+                    <a href="form_update.php?no=<?php echo $baris['id'] ?>">
+                      <Button type="button" class="btn btn-primary"> edit</Button>
+                    </a>
+                    <a href="hapus.php?no=<?php echo $baris['id'] ?>">
+                      <button type="button" class="btn btn-danger"onclick="return confirm('Konfirmasi jika ingin menghapus?')">hapus</button></a>
+                    </td>
+                    <td>
+                      <input type="button" class="btn btn-success" value="Export Excel" onclick="window.open('script_excel.php')">
+                    </td>
+                    <?php } ?>
           
         </tr>    
       </tbody>
