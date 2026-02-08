@@ -34,10 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         //kondisi jika username role admin maka masuk halaman admin
         if ($data['role'] == 'admin') {
-            header("Location: admin/index.php");
+            header("Location: admin/data_tempered_glass.php");
             exit;
         } elseif ($data['role'] == 'pengguna') {
-            header("Location: pengguna/index.php");
+            header("Location: pengguna/data_tempered_glass.php");
             exit;
         } else {
             $error = "Role tidak dikenali";
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <form method="POST" action="">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Username</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" required>
+        <input type="textS" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" required>
       </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Password</label>
