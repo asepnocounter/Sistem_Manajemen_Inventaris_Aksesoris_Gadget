@@ -58,7 +58,7 @@
                             <input type="text" class="form-control form-control-sm" value="<?php echo $baris['hp_tg']; ?>" aria-label=".form-control-sm example" name="hp_tg" required >
                         </div>
                         <button type="submit" class="btn btn-success">Simpan</button>
-                        <a href="data_tempered_glass.php">
+                        <a href="tempered_glass.php">
                             <button type="button" class="btn btn-danger">Kembali</button>
                         </a>
                         

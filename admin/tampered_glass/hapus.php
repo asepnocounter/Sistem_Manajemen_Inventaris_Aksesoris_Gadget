@@ -6,7 +6,7 @@ $no = $_GET['no'];
 $hapus = mysqli_query($koneksi, "DELETE FROM tampered_glass WHERE id='$no'");
 if($hapus == TRUE){
     echo "Berhasil Terhapus Dari Database";
-    header("Location: data_tempered_glass.php");
+    header("Location: tempered_glass.php");
 } else {
     echo "Gagal Terhapus";
 }

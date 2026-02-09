@@ -54,7 +54,7 @@
             <input type="text" class="form-control form-control-sm" aria-label=".form-control-sm example" name="hp_tg" required >
         </div>
         <input type="submit" class="btn btn-success" value="simpan" name="proses"></input>
-        <a href="data_tempered_glass.php">
+        <a href="tempered_glass.php">
             <button type="button" class="btn btn-danger">Kembali</button>
         </a>
         

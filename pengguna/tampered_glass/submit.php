@@ -15,7 +15,7 @@
     //buat kondisi jika query berhasil dan tidak error
     if($submit == TRUE){
         echo "<script>alert('Data Tersimpan')</script>";
-        header("Location: data_tempered_glass.php");
+        header("Location: tempered_glass.php");
     } else {
         echo "gagal tersimpan";
     }

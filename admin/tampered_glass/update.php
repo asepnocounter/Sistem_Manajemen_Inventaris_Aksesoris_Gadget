@@ -14,7 +14,7 @@ nama_tg='$nama', jumlah='$jumlah', harga='$harga', jenis_tg='$jenis_tg',hp_tg='$
 
 if($update == TRUE){
         echo "<script>alert('Data Terupdate')</script>";
-        header("Location: data_tempered_glass.php");
+        header("Location: tempered_glass.php");
 }else{
     echo "gagal";
 }

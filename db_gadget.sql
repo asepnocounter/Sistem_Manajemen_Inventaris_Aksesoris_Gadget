@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2026 at 04:58 PM
+-- Generation Time: Feb 09, 2026 at 08:00 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -20,6 +20,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_gadget`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `casing_handphone`
+--
+
+CREATE TABLE `casing_handphone` (
+  `id` int(255) NOT NULL,
+  `merek_ch` varchar(100) NOT NULL,
+  `jumlah` varchar(100) NOT NULL,
+  `harga` varchar(100) NOT NULL,
+  `jenis_ch` varchar(100) NOT NULL,
+  `hp_ch` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -41,9 +56,13 @@ CREATE TABLE `tampered_glass` (
 --
 
 INSERT INTO `tampered_glass` (`id`, `nama_tg`, `jumlah`, `harga`, `jenis_tg`, `hp_tg`) VALUES
-(2, 'alkjs', 'alskj', 'salkjas', 'Tempered Glass Anti-Blue Light', 'slja'),
-(3, 'alskdj', 'alsdk', 'alskdj', 'Tempered Glass Anti Spy', 'asldj'),
-(4, 'a;lsjd', ';lsafj', 'asflk', 'Tempered Glass Anti Glare', 'aslj');
+(1, 'Spigen', '100 Pcs', 'Rp. 200.000', 'Tempered Glass Anti Glare', 'Xiomi'),
+(2, 'Nillkin', '100 Pcs', 'Rp. 500.000', 'Tempered Glass Anti Spy', 'Vivo'),
+(3, 'Whitestone Dome', '1.000.000 Pcs', 'Rp. 100.000.000', 'Tempered Glass Anti Spy', 'Xiomi'),
+(4, 'ZAGG Invicible Shield', '250 Pcs', 'Rp. 500.000', 'Tempered Glass Anti Spy', 'Samsung'),
+(5, 'Ringke', '100 Pcs', 'Rp. 255.000', 'Tempered Glass Anti Glare', 'Google Pixel'),
+(6, 'Rhinoshiel', '1.000.000 Pcs', 'Rp. 10.000.000', 'Tempered Glass Anti-Blue Light', 'Techno'),
+(8, 'Uneed Hybrid Pro', '1.000.000 Pcs', 'Rp. 500.000.000', 'Tempered Glass Anti Spy', 'Iphone 20 XXR');
 
 -- --------------------------------------------------------
 
@@ -71,6 +90,12 @@ INSERT INTO `user` (`id`, `username`, `password`, `role`) VALUES
 --
 
 --
+-- Indexes for table `casing_handphone`
+--
+ALTER TABLE `casing_handphone`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tampered_glass`
 --
 ALTER TABLE `tampered_glass`
@@ -87,10 +112,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `casing_handphone`
+--
+ALTER TABLE `casing_handphone`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tampered_glass`
 --
 ALTER TABLE `tampered_glass`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user`

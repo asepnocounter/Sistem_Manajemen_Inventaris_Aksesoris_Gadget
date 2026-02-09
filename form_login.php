@@ -34,10 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         //kondisi jika username role admin maka masuk halaman admin
         if ($data['role'] == 'admin') {
-            header("Location: admin/data_tempered_glass.php");
+            header("Location: admin/dashboard.php");
             exit;
         } elseif ($data['role'] == 'pengguna') {
-            header("Location: pengguna/data_tempered_glass.php");
+            header("Location: pengguna/dashboard.php");
             exit;
         } else {
             $error = "Role tidak dikenali";
@@ -54,39 +54,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <head>
   <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Link Font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
       <title>SISTEM MANAJEMEN INVENTARIS AKSESORIS GADGET</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-      <style>
-        .mx-auto{width:500px}
-      </style>
     </head>
-  <body>
-    <div class="mx-auto">
-      <blockquote class="blockquote" >
-          <p>
-            Silahkan Mengisikan Form Tampered Glass
-          </p>
-      </blockquote>
+  
+    <body>
+      <?php if($error != ""){ ?>
+          <p style="color:red;"><?php echo $error; ?></p>
+      <?php } ?>
+    <section>
+      <div class="login-box">
+        <form action="" method="POST">
+          <h2>Login</h2>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
+            <input type="text"  name="username" required>
+            <label for="">Username</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon> </span>
+            <input type="password" name="password" required>
+            <label for="">Password</label>
+          </div>
+          <button>Login</button>
+        </form>
+      </div>    
+    </section>
+      
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 
-  <?php if($error != ""){ ?>
-      <p style="color:red;"><?php echo $error; ?></p>
-  <?php } ?>
-
-  <form method="POST" action="">
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Username</label>
-        <input type="textS" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" required>
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
-      </div>
-      <button type="submit" class="btn btn-primary">LOGIN</button>
-    </form>
-  </div>
-
-
-
-</body>
+    </body>
 </html>
