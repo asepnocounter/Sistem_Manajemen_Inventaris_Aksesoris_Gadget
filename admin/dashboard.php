@@ -36,7 +36,7 @@
               
               <div class="main">
                 <div class="list-item">
-                  <a href="../dashboard.php" class="">
+                  <a href=" dashboard.php" class="">
                     <img src="assets/simbol.svg" alt="" class="icon">
                     <span class="description">Dashboard</span>
                   </a>
@@ -46,15 +46,14 @@
                     <img src="assets/simbol.svg" alt="" class="icon">
                     <span class="description">Tampered Glass</span>
                   </a>
-                </div>
+                </div>              
                 <div class="list-item">
                   <a href="casing_handphone/casing_handphone.php" class="">
                     <img src="assets/simbol.svg" alt="" class="icon">
-                    <span class="description">Casing Handphone</span>
+                    <span class="description">casing_handphone</span>
                   </a>
-                </div>
+                </div>              
               </div>
-              
             </div>
             <!-- MAIN CONTENT -->
             <div class="main-content ">

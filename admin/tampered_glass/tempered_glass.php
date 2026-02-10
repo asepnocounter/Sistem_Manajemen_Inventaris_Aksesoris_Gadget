@@ -1,3 +1,8 @@
+<?php
+  include('koneksi.php');
+
+  $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +24,7 @@
 </head>
 <body>
   <!-- CONTAINER -->
-    <div class="container-fluid p-0 d-flex min-vh-100">
+        <div class="container-fluid p-0 d-flex min-vh-100">
                 <!-- SIDE BAR -->
             <div class="sidebar">
               
@@ -61,16 +66,25 @@
               <h2 align="center" class="text-center mb-4">Data Form Tampered Glass</h2>
 
               <div class="d-flex justify-content-between align-items-center mb-3">
-                <a href="form_submit.php">
-                  <button type="button" class="btn btn-success">Tambah</button>
-                </a>
-                    <form method="get" class="d-flex mb-3">
-                      <input type="text" name="keyword" class="form-control me-2"
-                       placeholder="Cari merk / jenis / HP.."
-                       value="<?= isset($_GET['keyword']) ? $_GET['keyword'] : '' ?>">
-                       <button type="submit" class="btn btn-primary">Cari</button>
-                    </form>
-              </div>
+
+                <div>
+                    <a href="form_submit.php" class="btn btn-success">Tambah</a>
+
+                    <a href="script_excel.php?keyword=<?= $keyword ?>"
+                      class="btn btn-success ms-2">
+                      Export Excel
+                    </a>
+                </div>
+
+                <form method="get" class="d-flex">
+                <input type="text"
+                       name="keyword"
+                       class="form-control me-2"
+                       placeholder="Cari merek tempered glass..."
+                       value="<?= $keyword ?>">
+                      <button type="submit" class="btn btn-primary">Cari</button>
+                </form>
+        </div>
               
               <div class="table-responsive d-flex">
                 <Table class="table table-dark table-striped">
@@ -87,28 +101,24 @@
                     </tr>
                   </thead>           
                   <tbody>
-                    <?php 
-                    include('koneksi.php');
-                    $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
-                    
-                    if($keyword != ''){
-                      $data = mysqli_query($koneksi, "
-                      SELECT * FROM tampered_glass
-                      WHERE 
-                      nama_tg LIKE '%$keyword%' OR
-                      hp_tg   LIKE '%$keyword%' OR
-                      jenis_tg LIKE '%$keyword%'
-                      ");
+                    <?php
+                      if($keyword != ''){
+                          $data = mysqli_query($koneksi,"
+                              SELECT id,nama_tg,jumlah,harga,jenis_tg,hp_tg
+                              FROM tampered_glass
+                              WHERE nama_tg LIKE '%$keyword%'
+                          ");
                       }else{
-                        $data = mysqli_query($koneksi, "
-                        SELECT * FROM tampered_glass
-                        ");
-                        }
-                        $no = 0;
-                        while($baris = mysqli_fetch_array($data)){
-                          $no++
-                          ?>
-                    <tr><td><?php echo $no?></td>
+                          $data = mysqli_query($koneksi,"
+                              SELECT id,nama_tg,jumlah,harga,jenis_tg,hp_tg
+                              FROM tampered_glass
+                          ");
+                      }
+
+                      $no = 1;
+                      while($baris = mysqli_fetch_array($data)){
+                    ?>
+                    <tr><td><?php echo $no++?></td>
                     <td><?php echo $baris['nama_tg'];?></td>
                     <td><?php echo $baris['jumlah'];?></td>
                     <td><?php echo $baris['harga'];?></td>
